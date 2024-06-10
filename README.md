@@ -5,6 +5,8 @@ This repository contains the firmware for the f/bape Audioplayer. Three individu
 * Intel Cyclone 10LP 10CL016 FPGA
 * uBlox NINA W102 (ESP32 D0WDQ6 Dual-Core)
 
+![alt text](Documentation/Images/System.jpg)
+
 ## Main-Features of the system
 - [x] MP3-Playback via SD-Card
 - [x] I2S-Input from external ADC
@@ -22,6 +24,8 @@ This repository contains the firmware for the f/bape Audioplayer. Three individu
 The SAMD21 is used as an USB-2-UART converter for controlling and updating the individual devices. Furthermore, it contains the bitstream for the Cyclone 10 FPGA as we are not using the original flash-chip for an easier update of the whole system. The device also controls the connected I2C-display, external GPIO-buffers and external ADC. It presents a simple GUI to the user to allow adjusting the most important functions without the webserver.
 The FPGA receives audio-data via I2S and control data via an UART-connection from the NINA W102. It also implements a frequency crossover for the two tweeters and the subwoofer as well as parametric equalizers and volume-controls.
 The uBlox NINA W102 (ESP32) acts as a WiFi Accesspoint with webserver. It can be used to adjust audio-volume, select MP3-tracks adjust the equalizer and other functions of the system. It feeds the audio-data via I2S to the FPGA. It can be used to act as a Bluetooth-A2DP-sink as well.
+
+![alt text](Documentation/Images/System_Overview.png)
 
 ## Used Device-Ressources
 * Atmel SAMD21 ATSAMD21G18A: 26% of program storage space
@@ -57,3 +61,33 @@ Then use the Arduino IDE to upload the new software using the built-in uploading
 
     Tools\esptool.exe --chip esp32 --port COM5 --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size 2MB 0x1000 Update\NINA.bootloader.bin 0x8000 Update\NINA.partitions.bin 0xe000 Tools\boot_app0.bin 0x10000 Update\NINA.bin
 After uploading the new firmware, please reset the board using the RESET-button.
+
+
+## Graphical User Interfaces
+
+There are several options to control the system:
+* WiFi via integrated Webinterface
+* UART via FBAPE.EXE, FBAPE311.EXE (Windows 3.11), FBAPECPP.EXE (Windows 3.x) or FBAPEWLO.EXE (OS/2)
+* via ASCII-commands via UART
+
+![alt text](Documentation/Images/GUI_Webinterface.png)
+
+![alt text](Documentation/Images/GUI_FBAPE.png)
+
+![alt text](Documentation/Images/GUI_FBAPECPP.png)
+
+## Audio-Performance
+
+As a DIY-Project, the audio-performance is quite good, but depends on the type of output. While using the digital SPDIF-output the system has the same quality as comparable HiFi-devices. But when using the low-cost PDM-output it may not be comparable to High-End-Class Audiodevices. Here the measurement of a Wave-File playing 1kHz, 5kHz, 10kHz and 16kHz at the same time using the PDM:
+
+![alt text](Documentation/Images/PDM_SpectralView.png)
+
+The individual EQs serve several functions:
+
+![alt text](Documentation/Images/System_Bode.png)
+
+## Building it on your own
+
+For testing the system I connected everything using breadboard-connection or direct jumper-cables. With higher clock-rates you have to take care of the signal-quality: a 16MHz SPI-connection to the SD-Card needs a bit more care than a 1MHz signal.
+
+![alt text](Documentation/Images/Testsetup.png)
