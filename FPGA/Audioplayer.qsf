@@ -1,0 +1,216 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2022  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+# Date created = 10:54:37  March 01, 2023
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Audioplayer_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:06:41  FEBRUARY 28, 2023"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_E2 -to iCLK
+
+# Classic Timing Assignments
+# ==========================
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+
+# Compiler Assignments
+# ====================
+set_global_assignment -name OPTIMIZATION_MODE "AGGRESSIVE PERFORMANCE"
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name FAMILY "Cyclone 10 LP"
+set_global_assignment -name TOP_LEVEL_ENTITY Audioplayer
+set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 256
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE 10CL016YU256C8G
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name CONFIGURATION_VCCIO_LEVEL AUTO
+set_global_assignment -name STRATIXIII_UPDATE_MODE STANDARD
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name GENERATE_TTF_FILE ON
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON
+set_global_assignment -name CYCLONEIII_CONFIGURATION_DEVICE EPCS16
+
+# Programmer Assignments
+# ======================
+set_global_assignment -name GENERATE_JAM_FILE ON
+set_global_assignment -name GENERATE_JBC_FILE ON
+
+# Signal Tap Assignments
+# ======================
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+
+# Power Estimation Assignments
+# ============================
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE 100%
+
+# Incremental Compilation Assignments
+# ===================================
+set_global_assignment -name IGNORE_PARTITIONS ON
+
+# Advanced I/O Timing Assignments
+# ===============================
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+
+# --------------------------
+# start ENTITY(Audioplayer)
+
+	# start DESIGN_PARTITION(Top)
+	# ---------------------------
+
+		# Incremental Compilation Assignments
+		# ===================================
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+	# end DESIGN_PARTITION(Top)
+	# -------------------------
+
+# end ENTITY(Audioplayer)
+# ------------------------
+
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE OFF
+set_location_assignment PIN_G1 -to bMKR_D0
+set_location_assignment PIN_N3 -to bMKR_D1
+set_location_assignment PIN_C11 -to bMKR_D13
+set_location_assignment PIN_A13 -to bMKR_D14
+set_location_assignment PIN_R3 -to bMKR_D3
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name VHDL_SHOW_LMF_MAPPING_MESSAGES OFF
+set_location_assignment PIN_T3 -to bMKR_D4
+set_location_assignment PIN_T2 -to bMKR_D5
+set_location_assignment PIN_G16 -to bMKR_D6
+set_location_assignment PIN_G15 -to bMKR_D7
+set_location_assignment PIN_C2 -to bMKR_D15
+set_location_assignment PIN_C3 -to bMKR_D16
+set_location_assignment PIN_C6 -to bMKR_D17
+set_location_assignment PIN_D1 -to bMKR_D18
+set_location_assignment PIN_D3 -to bMKR_D19
+set_location_assignment PIN_F3 -to bMKR_D20
+set_location_assignment PIN_G2 -to bMKR_D21
+set_location_assignment PIN_P3 -to bMKR_D2
+set_location_assignment PIN_C16 -to bMKR_D10
+set_location_assignment PIN_F16 -to bMKR_D8
+set_location_assignment PIN_F15 -to bMKR_D9
+set_location_assignment PIN_C15 -to bMKR_D11
+set_location_assignment PIN_B16 -to bMKR_D12
+set_location_assignment PIN_B1 -to bMKR_D25
+set_location_assignment PIN_T6 -to bNINA_RxD
+set_location_assignment PIN_E15 -to bNINA_TxD
+set_location_assignment PIN_R1 -to bNINA_RESETN
+set_location_assignment PIN_N9 -to bNINA_PIO27
+set_location_assignment PIN_J13 -to bNINA_PIO32
+set_location_assignment PIN_N1 -to bNINA_PIO36
+set_location_assignment PIN_L16 -to bMKR_D31
+set_location_assignment PIN_T11 -to bNINA_PIO1
+set_location_assignment PIN_N6 -to bNINA_PIO5
+set_location_assignment PIN_P6 -to bNINA_PIO7
+set_location_assignment PIN_N5 -to bNINA_PIO8
+set_location_assignment PIN_R6 -to bNINA_PIO21
+set_location_assignment PIN_N11 -to bNINA_PIO28
+set_location_assignment PIN_T10 -to bNINA_PIO29
+set_location_assignment PIN_T5 -to bNINA_PIO18
+set_location_assignment PIN_R5 -to bNINA_PIO20
+set_location_assignment PIN_T4 -to bNINA_PIO31
+set_location_assignment PIN_R4 -to bNINA_PIO35
+set_global_assignment -name VHDL_FILE vu_meter.vhd
+set_global_assignment -name VHDL_FILE rs232_encoder.vhd
+set_global_assignment -name VHDL_FILE rs232_decoder.vhdl
+set_global_assignment -name VHDL_FILE noisegate.vhd
+set_global_assignment -name VHDL_FILE filter_lr24_stereo.vhd
+set_global_assignment -name VHDL_FILE compressor_stereosub.vhd
+set_global_assignment -name VHDL_FILE audiomixer_22ch.vhd
+set_global_assignment -name VHDL_FILE divider.vhd
+set_global_assignment -name VHDL_FILE compressor.vhd
+set_global_assignment -name VHDL_FILE mainfadersection.vhd
+set_global_assignment -name VHDL_FILE filter_lr24_stereosub.vhd
+set_global_assignment -name VHDL_FILE filter_iir_stereo.vhd
+set_global_assignment -name VHDL_FILE dac_dsm3.vhd
+set_global_assignment -name VHDL_FILE clipper.vhd
+set_global_assignment -name VHDL_FILE audiomixer.vhd
+set_global_assignment -name VHDL_FILE uart_tx.vhd
+set_global_assignment -name VHDL_FILE uart_rx.vhd
+set_global_assignment -name VHDL_FILE volume_ctrl.vhd
+set_global_assignment -name VHDL_FILE filter_iir.vhd
+set_global_assignment -name VHDL_FILE filter_lr24.vhd
+set_global_assignment -name VHDL_FILE i2s_aes_rx.vhd
+set_global_assignment -name VHDL_FILE subwoofer_sum.vhd
+set_global_assignment -name VHDL_FILE i2s_rx.vhd
+set_global_assignment -name VHDL_FILE spdif_transmitter.vhd
+set_global_assignment -name VHDL_FILE aes3rx.vhd
+set_global_assignment -name VHDL_FILE pll_1.vhd
+set_global_assignment -name VHDL_FILE RS232_Interface.vhd
+set_global_assignment -name VHDL_FILE RS232_Decoder.vhdl
+set_global_assignment -name BDF_FILE Audioplayer.bdf
+set_global_assignment -name SDC_FILE Audioplayer.sdc
+set_global_assignment -name QIP_FILE pll_2.qip
+set_global_assignment -name VHDL_FILE add_noise.vhd
+set_global_assignment -name VHDL_FILE noisegate_stereo.vhd
+set_global_assignment -name VHDL_FILE syncselector.vhd
+set_global_assignment -name VHDL_FILE compressor_stereo.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

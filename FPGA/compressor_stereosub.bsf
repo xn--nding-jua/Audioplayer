@@ -1,0 +1,202 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 400 352)
+	(text "compressor_stereosub" (rect 5 0 98 12)(font "Arial" ))
+	(text "inst" (rect 8 320 20 332)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 27 31 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "sample_l_in[(bit_width-1)..0]" (rect 0 0 108 12)(font "Arial" ))
+		(text "sample_l_in[(bit_width-1)..0]" (rect 21 43 129 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "sample_r_in[(bit_width-1)..0]" (rect 0 0 110 12)(font "Arial" ))
+		(text "sample_r_in[(bit_width-1)..0]" (rect 21 59 131 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "sample_sub_in[(bit_width-1)..0]" (rect 0 0 121 12)(font "Arial" ))
+		(text "sample_sub_in[(bit_width-1)..0]" (rect 21 75 142 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "sync_in" (rect 0 0 31 12)(font "Arial" ))
+		(text "sync_in" (rect 21 91 52 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "threshold_lr[(threshold_bit_width-1)..0]" (rect 0 0 148 12)(font "Arial" ))
+		(text "threshold_lr[(threshold_bit_width-1)..0]" (rect 21 107 169 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "ratio_lr[7..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "ratio_lr[7..0]" (rect 21 123 68 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "makeup_lr[7..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "makeup_lr[7..0]" (rect 21 139 83 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "coeff_attack_lr[15..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "coeff_attack_lr[15..0]" (rect 21 155 105 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "hold_ticks_lr[15..0]" (rect 0 0 73 12)(font "Arial" ))
+		(text "hold_ticks_lr[15..0]" (rect 21 171 94 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "coeff_release_lr[15..0]" (rect 0 0 89 12)(font "Arial" ))
+		(text "coeff_release_lr[15..0]" (rect 21 187 110 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "threshold_sub[(threshold_bit_width-1)..0]" (rect 0 0 158 12)(font "Arial" ))
+		(text "threshold_sub[(threshold_bit_width-1)..0]" (rect 21 203 179 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "ratio_sub[7..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "ratio_sub[7..0]" (rect 21 219 77 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 3))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "makeup_sub[7..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "makeup_sub[7..0]" (rect 21 235 92 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "coeff_attack_sub[15..0]" (rect 0 0 94 12)(font "Arial" ))
+		(text "coeff_attack_sub[15..0]" (rect 21 251 115 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "hold_ticks_sub[15..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "hold_ticks_sub[15..0]" (rect 21 267 103 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 3))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "coeff_release_sub[15..0]" (rect 0 0 99 12)(font "Arial" ))
+		(text "coeff_release_sub[15..0]" (rect 21 283 120 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 3))
+	)
+	(port
+		(pt 384 32)
+		(output)
+		(text "sample_l_out[(bit_width-1)..0]" (rect 0 0 114 12)(font "Arial" ))
+		(text "sample_l_out[(bit_width-1)..0]" (rect 249 27 363 39)(font "Arial" ))
+		(line (pt 384 32)(pt 368 32)(line_width 3))
+	)
+	(port
+		(pt 384 48)
+		(output)
+		(text "sample_r_out[(bit_width-1)..0]" (rect 0 0 116 12)(font "Arial" ))
+		(text "sample_r_out[(bit_width-1)..0]" (rect 247 43 363 55)(font "Arial" ))
+		(line (pt 384 48)(pt 368 48)(line_width 3))
+	)
+	(port
+		(pt 384 64)
+		(output)
+		(text "sample_sub_out[(bit_width-1)..0]" (rect 0 0 127 12)(font "Arial" ))
+		(text "sample_sub_out[(bit_width-1)..0]" (rect 236 59 363 71)(font "Arial" ))
+		(line (pt 384 64)(pt 368 64)(line_width 3))
+	)
+	(port
+		(pt 384 80)
+		(output)
+		(text "sync_out" (rect 0 0 37 12)(font "Arial" ))
+		(text "sync_out" (rect 326 75 363 87)(font "Arial" ))
+		(line (pt 384 80)(pt 368 80)(line_width 1))
+	)
+	(port
+		(pt 384 96)
+		(output)
+		(text "comp_lr_out" (rect 0 0 50 12)(font "Arial" ))
+		(text "comp_lr_out" (rect 313 91 363 103)(font "Arial" ))
+		(line (pt 384 96)(pt 368 96)(line_width 1))
+	)
+	(port
+		(pt 384 112)
+		(output)
+		(text "comp_sub_out" (rect 0 0 60 12)(font "Arial" ))
+		(text "comp_sub_out" (rect 303 107 363 119)(font "Arial" ))
+		(line (pt 384 112)(pt 368 112)(line_width 1))
+	)
+	(parameter
+		"bit_width"
+		"24"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"threshold_bit_width"
+		"24"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 368 320)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 400 -64 500 16))
+)

@@ -1,0 +1,22 @@
+# Binaries
+*.dcu
+*.bak
+
+# Temporary files
+*.tmp
+*.~*
+
+# Directories
+FPGA/db/
+FPGA/greybox_tmp/
+FPGA/incremental_db/
+FPGA/output_files/
+SAMD/Uploader/SAMD.ino.bin
+SAMD/bitstream.h
+NINA/build/
+build/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
