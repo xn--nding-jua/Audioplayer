@@ -5144,7 +5144,7 @@ https://fpgasoftware.intel.com/eula.
 )
 (symbol
 	(rect 7104 312 7328 392)
-	(text "dac_pdm2" (rect 5 0 55 12)(font "Arial" ))
+	(text "sigma_delta_twostage" (rect 5 0 113 12)(font "Arial" ))
 	(text "inst3" (rect 8 64 30 81)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
@@ -5175,11 +5175,11 @@ https://fpgasoftware.intel.com/eula.
 	(drawing
 		(rectangle (rect 16 16 208 64))
 	)
-	(annotation_block (parameter)(rect 7128 264 7304 304))
+	(annotation_block (parameter)(rect 7128 272 7304 312))
 )
 (symbol
 	(rect 7104 568 7328 648)
-	(text "dac_pdm2" (rect 5 0 55 12)(font "Arial" ))
+	(text "sigma_delta_twostage" (rect 5 0 113 12)(font "Arial" ))
 	(text "inst13" (rect 8 64 36 81)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
@@ -5210,11 +5210,11 @@ https://fpgasoftware.intel.com/eula.
 	(drawing
 		(rectangle (rect 16 16 208 64))
 	)
-	(annotation_block (parameter)(rect 7128 520 7304 560))
+	(annotation_block (parameter)(rect 7128 528 7304 568))
 )
 (symbol
 	(rect 7104 840 7328 920)
-	(text "dac_pdm2" (rect 5 0 55 12)(font "Arial" ))
+	(text "sigma_delta_twostage" (rect 5 0 113 12)(font "Arial" ))
 	(text "inst16" (rect 8 64 36 81)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
@@ -5245,7 +5245,7 @@ https://fpgasoftware.intel.com/eula.
 	(drawing
 		(rectangle (rect 16 16 208 64))
 	)
-	(annotation_block (parameter)(rect 7128 792 7304 832))
+	(annotation_block (parameter)(rect 7128 800 7304 840))
 )
 (connector
 	(text "clk_100MHz" (rect 1290 400 1349 417)(font "Intel Clear" ))
@@ -7570,11 +7570,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 6272 416)
 )
 (connector
-	(text "clk_5MHz" (rect 6218 416 6265 433)(font "Intel Clear" ))
-	(pt 6208 432)
-	(pt 6272 432)
-)
-(connector
 	(pt 6472 416)
 	(pt 6552 416)
 	(bus)
@@ -7874,6 +7869,11 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt 7328 872)
 	(pt 7352 872)
+)
+(connector
+	(text "clk_5MHz" (rect 6218 416 6265 433)(font "Intel Clear" ))
+	(pt 6208 432)
+	(pt 6272 432)
 )
 (text "Read I2S-Data into std_logic_vectors" (rect -48 592 171 611)(font "Intel Clear" (font_size 8)))
 (text "Clock-Generations derived from 48MHz main-clock" (rect -968 168 -534 191)(font "Intel Clear" (color 255 0 0)(font_size 12)))
