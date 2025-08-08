@@ -210,6 +210,11 @@ type
     cmdbtn: TButton;
     cmdmemo: TMemo;
     baudrate_dropdown: TComboBox;
+    gainanalogslider: TScrollBar;
+    Label24: TLabel;
+    vol_ddfs_lbl: TLabel;
+    volumeddfsslider: TScrollBar;
+    ddfsfreqslider: TScrollBar;
     procedure Timer1Timer(Sender: TObject);
     procedure eq_type_dropdownChange(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -287,6 +292,9 @@ type
     procedure cmdbtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure gainanalogsliderChange(Sender: TObject);
+    procedure volumeddfssliderChange(Sender: TObject);
+    procedure ddfsfreqsliderChange(Sender: TObject);
   private
     { Private-Deklarationen}
     FirstStart:boolean;
@@ -349,10 +357,16 @@ begin
     CurrentEQ := 0;
     for i:=0 to 4 do
     begin
-      EQs[i].eq_type:=0;
-      EQs[i].fc:=1000;
+      EQs[i].eq_type:=1; {PEQ}
+      case i of
+        0: EQs[i].fc:=200;
+        1: EQs[i].fc:=1000;
+        2: EQs[i].fc:=2000;
+        3: EQs[i].fc:=4000;
+        4: EQs[i].fc:=10000;
+      end;
       EQs[i].gain:=0;
-      EQs[i].Q:=2;
+      EQs[i].Q:=1;
     end;
     UpdateEqControls;
     flag_recalcEQs := true;
@@ -1494,6 +1508,31 @@ end;
 procedure Tmainform.FormCreate(Sender: TObject);
 begin
   FirstStart:=true;
+end;
+
+procedure Tmainform.gainanalogsliderChange(Sender: TObject);
+var
+  s: String;
+begin
+  s := inttostr(48-gainanalogslider.position);
+  SendCommand('mixer:adc:gain1@' + s);
+end;
+
+procedure Tmainform.volumeddfssliderChange(Sender: TObject);
+var
+  s:string;
+begin
+  s := value2str((60-volumeddfsslider.position)/10);
+  SendCommand('mixer:volume:ddfs@' + s);
+  vol_ddfs_lbl.caption := s + 'dB';
+end;
+
+procedure Tmainform.ddfsfreqsliderChange(Sender: TObject);
+var
+  s: String;
+begin
+  s := inttostr(255-ddfsfreqslider.position);
+  SendCommand('mixer:freq:ddfs@' + s);
 end;
 
 end.
